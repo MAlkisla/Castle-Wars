@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 5756898593175138475}
   - component: {fileID: 6727214252840785122}
   - component: {fileID: 1687905423834365028}
-  - component: {fileID: 59302371336453235}
+  - component: {fileID: 6325147362621552227}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -313,7 +313,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
---- !u!114 &59302371336453235
+--- !u!114 &6325147362621552227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,4 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  blockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  blockedColor: {r: 0, g: 0, b: 0, a: 1}
+  exploredtColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  pathColor: {r: 1, g: 0, b: 0, a: 1}

@@ -6,24 +6,30 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] int maxiHitPoints = 5;
+    [SerializeField] EnemyHealthText enemyHealthText;
+    [SerializeField] int startingHP = 5;
     [Tooltip("Adds amount to maxHitPoints when enemy dies")]
     [SerializeField] int difficultyRamp = 1;
     int currentHitPoints = 0;
+    public int CurrentHitPoints { get { return currentHitPoints; } }
 
     Enemy enemy;
     void OnEnable()
     {
-        currentHitPoints = maxiHitPoints;
+        currentHitPoints = startingHP;
+
     }
     void Start()
     {
         enemy = GetComponent<Enemy>();
+        enemyHealthText.UpdateHealthText(startingHP);
+
     }
 
     void OnParticleCollision(GameObject other)
     {
         ProcessHit();
+        enemyHealthText.UpdateHealthText(currentHitPoints);
     }
 
     void ProcessHit()
@@ -32,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHitPoints <= 0)
         {
             gameObject.SetActive(false);
-            maxiHitPoints += difficultyRamp;
+            startingHP += difficultyRamp;
             enemy.RewardGold();
         }
     }
